@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Ogłoszenia</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      background: radial-gradient(circle at center, #0e0c1b, #090512);
+      font-family: 'Segoe UI', sans-serif;
+      color: #d3ddff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .glass-box {
+      background: rgba(40, 20, 60, 0.3);
+      border: 1px solid rgba(100, 100, 255, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(120, 60, 255, 0.3), 0 0 10px rgba(90, 60, 180, 0.4) inset;
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      width: 95%;
+      max-width: 1000px;
+      text-align: center;
+      animation: fadeSlideIn 1.2s ease-out forwards;
+    }
+
+    .double-box {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .glass-half {
+      flex: 1;
+      min-width: 300px;
+      max-width: 480px;
+      background: rgba(50, 30, 70, 0.25);
+      border: 1px solid rgba(120, 80, 200, 0.2);
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(100, 60, 200, 0.3);
+      backdrop-filter: blur(8px);
+      padding: 25px;
+      animation: fadeSlideIn 1.4s ease-out forwards;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .glass-half:nth-child(1) { animation-delay: 0.4s; }
+    .glass-half:nth-child(2) { animation-delay: 0.7s; }
+
+    h1, h2 {
+      margin: 0 0 20px 0;
+      color: #b8aaff;
+      text-shadow: 0 0 6px #6f44ff, 0 0 10px #6f44ff;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glass-box">
+    <h1>instrukcja dołączenia na server SoulStream 2</h1>
+  </div>
+
+  <div class="double-box">
+    <div class="glass-half">
+      <h2>instalacje programu TailScale.</h2>
+      <p>1🔹 Wejdź na strone https://tailscale.com/ .</p>
+      <p>2🔹 kliknij w <strong>downoload</strong> w prawym górnym rogu i zainstaluj program na swój system operacyjny.</p>
+      <p>3🔹 Wejdź na tailscale i zaloguj się na login podany w drugim kwadracie.</p>
+      <p>Po zalogowaniu pamiętaj by mieć go odpalonego w tle gdy grasz na serverze innaczej cie rozłączy lub nie będziesz w stanie dołączyć.</p>
+      <p>4🔹 Ostatni krok wejdź na server używając ip równierz podanego w drugim okienku.</p>
+    </div>
+    
+    <div class="glass-half">
+      <h2>klucze</h2>
+      <p>🟪 email-skullosametyst@gmail.com</p>
+      <p>🟪 hasło-skullosoperator</p>
+      <p>🟪 ip-100.72.97.64:25565</p>
+    </div>
+  </div>
+
+</body>
+</html>

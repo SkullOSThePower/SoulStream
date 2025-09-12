@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Bestiariusz Mroku</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 50px 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #100020, #000010);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #d0d0ff;
+    }
+
+    .monster-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .monster-box {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(100, 80, 150, 0.12);
+      border: 1px solid rgba(180, 140, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(120, 80, 200, 0.3);
+      animation: fadeInUp 1s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .monster-box::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 150%;
+      height: 150%;
+      background: url('fog-overlay.png'); /* możesz podmienić np. na duchowy efekt */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .left {
+      flex: 1;
+      font-size: 2em;
+      color: #a899ff;
+      text-shadow: 0 0 10px #6f44ff;
+    }
+
+    .right {
+      flex: 2;
+      padding-left: 20px;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      color: #e0e0ff;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #c2aaff;
+      text-shadow: 0 0 20px #8050ff, 0 0 30px #3f00ff;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>👁️‍🗨️ Bestiariusz Mroku: Kroniki Nienazwanych</h1>
+
+  <div class="monster-list">
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

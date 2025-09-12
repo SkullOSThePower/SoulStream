@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Miyabi - Moja Postać</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: #e0eaff;
+      overflow-y: auto;
+    }
+
+    /* ===== MOTYW Miyabi OP ===== */
+    body.miyabi-theme {
+      background: linear-gradient(135deg, #001a4d, #0033cc, #00ccff, #6600ff);
+      background-size: 400% 400%;
+      animation: miyabiGradient 15s ease infinite, miyabiGlow 6s ease-in-out infinite;
+    }
+
+    @keyframes miyabiGlow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.5); }
+    }
+
+    @keyframes miyabiGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== BOXY OGÓLNE ===== */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px #00aaff, 0 0 40px #0077ff, 0 0 60px #00ccff;
+    }
+
+    .box {
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: rgba(0, 80, 200, 0.2);
+      box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
+    }
+
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(0, 200, 255, 0.9);
+    }
+
+    .box h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #00aaff;
+      text-shadow: 0 0 12px #0077ff, 0 0 24px #00ccff;
+    }
+
+    .box p {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+
+    /* Większy box dla historii */
+    .box.history {
+      min-height: 200px;
+    }
+
+    /* Powrót */
+    .back-link {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      padding: 12px 20px;
+      width: fit-content;
+      background: #7a3cff;
+      border-radius: 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 0 15px rgba(180, 100, 255, 0.7);
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .back-link:hover {
+      background: #9a5cff;
+      box-shadow: 0 0 25px rgba(180, 100, 255, 0.9);
+    }
+  </style>
+</head>
+<body class="miyabi-theme">
+
+  <div class="container">
+    <h1>Moja Postać - Miyabi</h1>
+
+    <div class="box">
+      <h2>Imię i nazwisko</h2>
+      <p>Miyabi Hoshimi</p>
+    </div>
+
+    <div class="box">
+      <h2>Wiek i data urodzenia</h2>
+      <p>Wiek: 11011</p>
+      <p>Rok: 0</p>
+      <p>Miesiąc: 0</p>
+      <p>Dzień: 0</p>
+    </div>
+
+    <div class="box">
+      <h2>Umiejętności</h2>
+      <p>Niezniszczalność, niematerialność, kontrola rzeczywistości, wszechwiedza, kontrola kotelka</p>
+    </div>
+
+    <div class="box history">
+      <h2>Mini historia</h2>
+      <p>Miyabi była wojowniczka dziewczyną z wioski zabijała tysiące potworów broniąc wioski. Pewnego dnia to nie wystarczyło i wioska upadłą. Krążac po świecie gdzie nie mogła znaleść domu napotkała grób 1 boga ukłoniła się i podeszła do niego i delikatnie dotkneła. Wiatr zaszumiał a jej oczy świeciły na niebiesko i wiedziała co się stało. Stała się nowym bogiem by kierować wszystkim. Odrazu wezwała kotelka bo znała historie i zaczeła swoją nową przygode
+      </p>
+    </div>
+
+    <div class="box">
+      <h2>Rodzina</h2>
+      <p>Bliska przyszywana rodzina:kotelek<br>bliscy znajomi:Marek, chinczyk, farmer Brak rodziny bliskiej</p>
+    </div>
+
+    <a href="index.html" class="back-link">⬅ Powrót</a>
+  </div>
+
+</body>
+</html>

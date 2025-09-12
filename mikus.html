@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Moja Postać - Mikus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: #e0eaff;
+      overflow-y: auto;
+    }
+
+    /* ===== MOTYW MIKUS ===== */
+    body.mikus-theme {
+      background: linear-gradient(to bottom, #003333, #00cccc);
+    }
+
+    /* ===== BOXY ===== */
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 12px #55ffee;
+    }
+
+    .box {
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 25px;
+      transition: transform 0.3s;
+      background: rgba(0, 200, 200, 0.1);
+      box-shadow: 0 0 15px rgba(0, 255, 200, 0.6);
+    }
+    .box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    }
+
+    .box h2 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #55ffee;
+      text-shadow: 0 0 8px #00ffaa;
+    }
+
+    .box p {
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+
+    /* Większy box dla historii */
+    .box.history {
+      min-height: 200px;
+    }
+
+    /* Powrót */
+    .back-link {
+      display: block;
+      margin: 20px auto;
+      text-align: center;
+      padding: 12px 20px;
+      width: fit-content;
+      background: #55ffee;
+      border-radius: 10px;
+      color: #003333;
+      text-decoration: none;
+      font-size: 1rem;
+      box-shadow: 0 0 10px rgba(0, 255, 200, 0.6);
+      transition: background 0.3s;
+    }
+    .back-link:hover {
+      background: #33eecc;
+    }
+  </style>
+</head>
+<body class="mikus-theme">
+
+  <div class="container">
+    <h1>Moja Postać - Mikus</h1>
+
+    <div class="box">
+      <h2>Imię i nazwisko</h2>
+      <p><!-- wpisz imię i nazwisko --></p>
+    </div>
+
+    <div class="box">
+      <h2>Wiek i data urodzenia</h2>
+      <p>Rok: ____</p>
+      <p>Miesiąc: ____</p>
+      <p>Dzień: ____</p>
+    </div>
+
+    <div class="box">
+      <h2>Umiejętności</h2>
+      <p><!-- wpisz umiejętności --></p>
+    </div>
+
+    <div class="box history">
+      <h2>Mini historia</h2>
+      <p><!-- wpisz historię postaci --></p>
+    </div>
+
+    <div class="box">
+      <h2>Rodzina</h2>
+      <p><!-- wpisz informacje o rodzinie --></p>
+    </div>
+
+    <a href="index.html" class="back-link">⬅ Powrót</a>
+  </div>
+
+</body>
+</html>
