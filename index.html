@@ -2,8 +2,9 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Apocalypse SkullOS</title>
+  <title>KraimOS – Soulstream</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     html, body {
       margin: 0;
@@ -12,63 +13,16 @@
       font-family: 'Segoe UI', sans-serif;
       color: #e0eaff;
       overflow: hidden;
-    }
-
-    /* ===== LOGIN ===== */
-    #login {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(to bottom, #0d0c1d, #1a1a40);
-      z-index: 2000;
-    }
-
-    #login-box {
-      text-align: center;
-      background: rgba(40, 44, 84, 0.9);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(180, 180, 255, 0.3);
-    }
-
-    #login-box input {
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      margin-bottom: 15px;
-      width: 200px;
-      text-align: center;
-    }
-
-    #login-box button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #7a3cff;
-      color: white;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.3s;
-    }
-
-    #login-box button:hover {
-      background: #9a5cff;
-    }
-
-    /* ===== MOTYWY ===== */
-    body.kibel-theme { background: linear-gradient(to bottom, #3a3000, #ffd700); }
-    body.darkmatter-theme { background: linear-gradient(to bottom, #000000, #1a1a1a); }
-    body.mikus-theme { background: linear-gradient(to bottom, #003333, #00cccc); }
-    body.miyabi-theme {
       background: linear-gradient(135deg, #001a4d, #0033cc, #00ccff);
       animation: glow 6s ease-in-out infinite;
     }
-    @keyframes glow { 0%,100%{filter:brightness(1);} 50%{filter:brightness(1.3);} }
 
-    /* ===== CONTENT ===== */
+    @keyframes glow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.3); }
+    }
+
+    /* ===== GŁÓWNA STRONA ===== */
     .container {
       height: 100vh;
       width: 100%;
@@ -80,8 +34,9 @@
       z-index: 1;
       transition: transform 0.6s ease;
     }
+
     .container.shifted {
-      transform: translateX(420px); /* mocniejsze odsunięcie */
+      transform: translateX(420px);
     }
 
     .logo {
@@ -100,37 +55,62 @@
       margin-bottom: 15px;
       text-align: center;
     }
-    @keyframes float {0%{transform:translateY(0);}50%{transform:translateY(-10px);}100%{transform:translateY(0);}}
 
-    /* ===== MENU BUTTON ===== */
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .ip-box {
+      font-size: 1.4rem;
+      padding: 10px 25px;
+      background: rgba(20, 40, 120, 0.4);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(200, 230, 255, 0.4);
+      backdrop-filter: blur(5px);
+      margin-top: 10px;
+    }
+
+    /* ===== MENU ===== */
     .menu-button {
       position: fixed;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      width: 60px; height: 60px;
-      background: rgba(180,100,255,0.3);
-      border: none; border-radius: 50%;
-      color: #fff; font-size: 26px;
-      cursor: pointer; z-index: 1000;
-      box-shadow: 0 0 12px rgba(200,100,255,0.6);
+      width: 60px;
+      height: 60px;
+      background: rgba(180, 100, 255, 0.3);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 26px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 0 12px rgba(200, 100, 255, 0.6);
       backdrop-filter: blur(6px);
       transition: background 0.3s;
     }
-    .menu-button:hover { background: rgba(180,100,255,0.5); }
 
-    /* ===== LINKI ===== */
+    .menu-button:hover {
+      background: rgba(180, 100, 255, 0.5);
+    }
+
     .link-boxes {
       position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       display: none;
       flex-direction: column;
       gap: 16px;
       z-index: 998;
       text-align: center;
     }
-    .link-boxes.open { display: flex; }
+
+    .link-boxes.open {
+      display: flex;
+    }
 
     .link-box {
       background: #3a2c54;
@@ -138,12 +118,16 @@
       padding: 14px 26px;
       border-radius: 10px;
       font-size: 1rem;
-      opacity: 0; pointer-events: none;
-      box-shadow: 0 0 10px rgba(180,100,255,0.5);
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 0 10px rgba(180, 100, 255, 0.5);
       white-space: nowrap;
       transform: translateY(20px);
     }
-    .link-boxes.open .link-box { pointer-events: auto; }
+
+    .link-boxes.open .link-box {
+      pointer-events: auto;
+    }
 
     .link-boxes.open .link-box:nth-child(1) { animation: fadeInUp 0.4s ease-out forwards 0s; }
     .link-boxes.open .link-box:nth-child(2) { animation: fadeInUp 0.4s ease-out forwards 0.15s; }
@@ -155,88 +139,55 @@
     .link-boxes.open .link-box:nth-child(8) { animation: fadeInUp 0.4s ease-out forwards 1.05s; }
 
     @keyframes fadeInUp {
-      from { opacity:0; transform:translateY(20px); }
-      to { opacity:1; transform:translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ===== PRZEJŚCIE STRON ===== */
     .page-transition {
       position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:#0d0c1d;
-      z-index:5000;
-      pointer-events:none;
-      opacity:0;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #0d0c1d;
+      z-index: 5000;
+      pointer-events: none;
+      opacity: 0;
       transition: opacity 0.6s ease;
     }
-    .page-transition.active { opacity:1; }
-    #main { display: none; }
+
+    .page-transition.active {
+      opacity: 1;
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- ===== LOGIN ===== -->
-  <div id="login">
-    <div id="login-box">
-      <h2>Podaj swój kod dostępu</h2>
-      <input type="password" id="accessCode" placeholder="Wpisz kod...">
-      <br>
-      <button onclick="checkCode()">Wejdź</button>
-      <p id="error" style="color: red; margin-top: 10px;"></p>
-    </div>
+  <div class="container" id="content">
+    <img src="logo.png" alt="Logo SkullOS" class="logo">
+
+    <div class="brand">CZAS NA KRAIMA!</div>
+
+    <div class="ip-box">IP: <b>KraimOS.feathermc.gg</b></div>
   </div>
 
-  <!-- ===== GŁÓWNA STRONA ===== -->
-  <div id="main">
-    <div class="container" id="content">
-      <img src="logo.png" alt="Logo SkullOS" class="logo">
-      <div id="welcome" class="brand"></div>
-      <div class="brand">systemie Soulstream przedstawia.</div>
-    </div>
+  <button class="menu-button" onclick="toggleLinks()">☰</button>
 
-    <button class="menu-button" onclick="toggleLinks()">☰</button>
-
-    <div id="link-boxes" class="link-boxes">
-      <a href="ipsignal.html" class="link-box">📢 Instrukcja wejścia</a>
-      <a href="zasadyswiata.html" class="link-box">📜 Zasady</a>
-      <a href="MonsterInformations.html" class="link-box">👹 Potwory</a>
-      <a href="rodzajeidziałanie.html" class="link-box">📊 opcje servera</a>
-      <a href="Lordowiebogowieistoty.html" class="link-box">𒀱 Istoty</a>
-      <a href="aktualnyserver.html" class="link-box">👁 Aktualny server</a>
-      <a href="#" id="mypage" class="link-box">🎭 Moja postać</a>
-      <a href="dimension.html" class="link-box">🌌 Wymiary</a>
-    </div>
+  <div id="link-boxes" class="link-boxes">
+    <a href="ipsignal.html" class="link-box">📢 Instrukcja wejścia</a>
+    <a href="zasadyswiata.html" class="link-box">📜 Zasady</a>
+    <a href="MonsterInformations.html" class="link-box">👹 Potwory</a>
+    <a href="rodzajeidziałanie.html" class="link-box">📊 Opcje serwera</a>
+    <a href="Lordowiebogowieistoty.html" class="link-box">𒀱 Istoty</a>
+    <a href="aktualnyserver.html" class="link-box">👁 Aktualny serwer</a>
+    <a href="dimension.html" class="link-box">🌌 Wymiary</a>
   </div>
 
-  <!-- Overlay do animacji -->
   <div class="page-transition" id="transition"></div>
 
   <script>
-    // Lista użytkowników
-    const users = {
-      "Electus": { name: "Kibel", theme: "kibel-theme", page: "kibel.html" },
-      "szopmajster123": { name: "DarkMatter", theme: "darkmatter-theme", page: "darkmatter.html" },
-      "2114": { name: "Mikuś", theme: "mikus-theme", page: "mikus.html" },
-      "MH": { name: "Miyabi", theme: "miyabi-theme", page: "miyabi.html" }
-    };
-
-    function checkCode() {
-      const code = document.getElementById("accessCode").value;
-      const error = document.getElementById("error");
-
-      if (users[code]) {
-        const user = users[code];
-        document.getElementById("login").style.display = "none";
-        document.getElementById("main").style.display = "block";
-        document.getElementById("welcome").textContent = `Witaj ${user.name}!`;
-        document.body.classList.add(user.theme);
-        document.getElementById("mypage").href = user.page;
-      } else {
-        error.textContent = "❌ No wiesz to nie twój login";
-      }
-    }
-
     function toggleLinks() {
       const links = document.getElementById("link-boxes");
       const content = document.getElementById("content");
@@ -244,7 +195,6 @@
       content.classList.toggle("shifted");
     }
 
-    // Animacja przejścia między stronami
     document.querySelectorAll(".link-box").forEach(link => {
       link.addEventListener("click", function(e) {
         e.preventDefault();
@@ -255,7 +205,6 @@
       });
     });
   </script>
+
 </body>
 </html>
-
-
