@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<title>Istoty Przeklęte</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 60px 20px 120px;
+  background: linear-gradient(to bottom, #001b4d, #000814, #020024);
+  font-family: 'Segoe UI', sans-serif;
+  color: #dff6ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ===== TYTUŁ ===== */
+h1 {
+  font-size: 3em;
+  color: #7df9ff;
+  text-shadow: 0 0 20px #00eaff, 0 0 40px #0033ff;
+  margin-bottom: 50px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ===== TABELA / GRID ===== */
+.floor {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ===== KARTA POSTACI ===== */
+.entity {
+  background: rgba(0, 60, 120, 0.25);
+  border: 2px solid rgba(0, 247, 255, 0.35);
+  border-radius: 18px;
+  box-shadow: 0 0 35px rgba(0, 247, 255, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 25px;
+  animation: fadeUp 0.9s ease-out forwards;
+  opacity: 0;
+}
+
+/* opóźnienia */
+.entity:nth-child(1) { animation-delay: 0.2s; }
+.entity:nth-child(2) { animation-delay: 0.4s; }
+.entity:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ===== IMIĘ ===== */
+.entity h2 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.8em;
+  color: #9bfaff;
+  text-shadow: 0 0 15px #00cfff;
+  margin-bottom: 18px;
+}
+
+/* ===== BLOKI INFO ===== */
+.info {
+  background: rgba(0, 10, 40, 0.5);
+  border-left: 4px solid #00f7ff;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 15px rgba(0, 247, 255, 0.25);
+}
+
+.label {
+  font-weight: bold;
+  color: #7df9ff;
+}
+
+/* ===== RESPONSYWNOŚĆ ===== */
+@media (max-width: 900px) {
+  .floor {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>𒀱 Istoty Przeklęte 𒀱</h1>
+
+<div class="floor">
+
+  <div class="entity">
+    <h2>f00dvill4in</h2>
+    <div class="info">
+      <span class="label">Pseudonim:</span> —
+    </div>
+    <div class="info">
+      <span class="label">Wiek:</span> —
+    </div>
+    <div class="info">
+      <span class="label">Krótka historia:brak</span><br>
+      —
+    </div>
+    <div class="info">
+      <span class="label">Specjalność:laborant</span> —
+    </div>
+  </div>
+
+
+  <div class="entity">
+    <h2>D4rkm2tter</h2>
+    <div class="info">
+      <span class="label">Pseudonim:</span> —
+    </div>
+    <div class="info">
+      <span class="label">Wiek:</span> —
+    </div>
+    <div class="info">
+      <span class="label">Krótka historia:brak</span><br>
+      —
+    </div>
+    <div class="info">
+      <span class="label">Specjalność:Brak</span> —
+    </div>
+  </div>
+
+
+  <div class="entity">
+    <h2>MikusiekHihi</h2>
+    <div class="info">
+      <span class="label">Pseudonim:Wilson Losiento</span> —
+    </div>
+    <div class="info">
+      <span class="label">Wiek:</span> —
+    </div>
+    <div class="info">
+      <span class="label">Krótka historia:brak</span><br>
+      —
+    </div>
+    <div class="info">
+      <span class="label">Specjalność:Maszynista</span> —
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

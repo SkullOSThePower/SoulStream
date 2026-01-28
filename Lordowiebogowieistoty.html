@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Bestiariusz Mroku</title>
+
+  <!-- ==== LOGIN MODUŁ ==== -->
+  <style>
+    #login-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #001a4d, #0033cc, #00ccff);
+      animation: glow 6s ease-in-out infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    @keyframes glow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.3); }
+    }
+
+    #login-box {
+      background: rgba(20, 40, 120, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(200, 230, 255, 0.5);
+      backdrop-filter: blur(6px);
+      color: white;
+    }
+
+    #login-box input {
+      padding: 10px;
+      width: 220px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    #login-box button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #7a3cff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #login-box button:hover {
+      background: #9a5cff;
+    }
+
+    #login-error {
+      color: #ff8080;
+      margin-top: 10px;
+    }
+  </style>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 50px 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #100020, #000010);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #d0d0ff;
+    }
+
+    .monster-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .monster-box {
+      display: flex;
+      justify-content: space-between;
+      background: rgba(100, 80, 150, 0.12);
+      border: 1px solid rgba(180, 140, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 25px rgba(120, 80, 200, 0.3);
+      animation: fadeInUp 1s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .monster-box::before {
+      content: "";
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      width: 150%;
+      height: 150%;
+      background: url('fog-overlay.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+
+    .left {
+      flex: 1;
+      font-size: 2em;
+      color: #a899ff;
+      text-shadow: 0 0 10px #6f44ff;
+    }
+
+    .right {
+      flex: 2;
+      padding-left: 20px;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      color: #e0e0ff;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      color: #c2aaff;
+      text-shadow: 0 0 20px #8050ff, 0 0 30px #3f00ff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGIN -->
+  <div id="login-overlay">
+    <div id="login-box">
+      <h2>Podaj swój kod dostępu</h2>
+      <input type="password" id="accessCode" placeholder="Wpisz kod...">
+      <br>
+      <button onclick="checkPageCode()">Wejdź</button>
+      <div id="login-error"></div>
+    </div>
+  </div>
+
+
+  <h1>👁️‍🗨️ Bestiariusz Mroku: Kroniki Nienazwanych</h1>
+
+  <div class="monster-list">
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+    <div class="monster-box">
+      <div class="left">Brak istoty</div>
+      <div class="right">Brak opisu</div>
+    </div>
+
+  </div>
+
+
+<script>
+// Lista użytkowników
+const users = {
+  "Electus": { name: "Kibel" },
+  "szopmajster123": { name: "DarkMatter" },
+  "2114": { name: "Mikuś" },
+  "MH": { name: "Miyabi" }
+};
+
+// Sprawdzenie hasła
+function checkPageCode() {
+  const code = document.getElementById("accessCode").value;
+  const error = document.getElementById("login-error");
+
+  if (users[code]) {
+    sessionStorage.setItem("loggedUser", code);
+    document.getElementById("login-overlay").style.display = "none";
+  } else {
+    error.textContent = "❌ Niepoprawny kod dostępu";
+  }
+}
+
+// Jeśli użytkownik jest już zalogowany → nie pokazuj loginu
+window.addEventListener("load", () => {
+  const logged = sessionStorage.getItem("loggedUser");
+  if (logged && users[logged]) {
+    document.getElementById("login-overlay").style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
